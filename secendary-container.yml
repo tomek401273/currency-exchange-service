@@ -1,0 +1,18 @@
+version: '3'
+services:
+  currency-exchange-service:
+    image: tomek371240/currency-exchange-service:5
+    networks:
+      - springcloud-overlay
+    ports:
+      - "8001:8001"
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - springcloud-overlay
+networks:
+  springcloud-overlay:
+    external:
+      name: springcloud-overlay
